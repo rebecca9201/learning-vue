@@ -6,12 +6,7 @@
   </head>
   <body>
     <div id="root">
-      <ul>
-        <li v-for="name in names" v-text="name"></li>
-      </ul>
-      
-      <input id="input" type="text" v-model="newName">
-      <button @click="addName">Add Name</button>
+      <button v-bind:title="title">Hover Over Me</button>
     
     </div>
   
@@ -22,8 +17,7 @@
       var app = new Vue({
         el: "#root",
         data: {
-          newName: "",
-          names: ["Joe", "Mary", "Jane", "JACK"]
+          title: "Now title is being set through javascript"
 
         },
         
