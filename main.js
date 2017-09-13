@@ -1,52 +1,20 @@
-Vue.component("task-list", {
+Vue.component('basic-modal', {
   template: `
-    <div>
-      <task v-for="task in tasks">{{ task.task }}</task>
+  <div class="modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box">
+        <slot></slot>
+      </div>
     </div>
-  `,
-
-  data() {
-    return {
-      tasks: [
-        { task: "Go to the store", complete: true },
-        { task: "Finish screencast", complete: true },
-        { task: "Make donation", complete: false },
-        { task: "Clear inbox", complete: false },
-        { task: "Make dinner", complete: false },
-        { task: "Clean room", complete: true }
-      ]
-    };
-  }
-});
-
-Vue.component("task", {
-  template: "<li><slot></slot></li>"
-});
-
-Vue.component("important-message", {
-  props: ["title", "body"],
-
-  data() {
-    return {
-      isVisible: true
-    };
-  },
-
-  template: `
-  <article class="message" v-show="isVisible">
-    <div class="message-header">
-      {{ title }}
-      <button class="delete" aria-label="delete" @click="isVisible = false"></button>
-    </div>
-
-    <div class="message-body">
-      {{ body }}
-    </div>
-</article>
-
+    <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
+  </div>
   `
 });
 
 new Vue({
-  el: "#component"
-})
+  el: "#component",
+  data: {
+    showModal: false
+  }
+});

@@ -8,10 +8,10 @@
   </head>
   <body>
     <div id="component" class= "container">
-      <!-- <task-list></task-list> -->
-      <important-message title="Hello World" body="I hate this world"></important-message>
-      <important-message title="leoleoleo" body="hahaha"></important-message>
-
+      <button @click="showModal = true">show modal</button>
+      <basic-modal v-show="showModal" @close="showModal = false">
+        <p>yeah, modal!</p>
+      </basic-modal>
     </div>
     <script src="https://unpkg.com/vue@2.4.2/dist/vue.js"></script>
     <script src="main.js"></script>
