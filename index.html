@@ -3,33 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style>
+      .color-red { color: red; }
+      .color-blue { color: blue; }
+      .is-loading { background: red; }
+    </style>
   </head>
   <body>
     <div id="root">
-      <button v-bind:title="title">Hover Over Me</button>
-    
+      <button :class= "{ 'is-loading': isLoading }" @click="toggleClass">Toggle me</button>
     </div>
-  
+
     <script src="https://unpkg.com/vue@2.4.2/dist/vue.js">
-      
+
     </script>
-    <script>    
+    <script>
       var app = new Vue({
         el: "#root",
         data: {
-          title: "Now title is being set through javascript"
-
+          isLoading: false
         },
-        
+
         methods: {
-          addName: function () {
-            this.names.push(this.newName);
-            this.newName = "";
+          toggleClass() {
+            this.isLoading = true;
           }
         },
-        
+
       });
-      
+
 
     </script>
   </body>
