@@ -11,33 +11,26 @@
   </head>
   <body>
     <div id="root">
-      <button :class= "{ 'is-loading': isLoading }" @click= "toggleClass">Toggle me</button>
-      <button :disabled="isdisabled" @click= "toggleDisable" >When clicked disabled</button>
+      <h1>
+        {{ reversedMessage }}
+      </h1>
     </div>
 
-    <script src="https://unpkg.com/vue@2.4.2/dist/vue.js">
+    <script src="https://unpkg.com/vue@2.4.2/dist/vue.js"></script>
 
-    </script>
     <script>
       var app = new Vue({
-        el: "#root",
+        el: '#root',
         data: {
-          isLoading: false,
-          isdisabled: false
+          message: 'Hello World'
         },
 
-        methods: {
-          toggleClass() {
-            this.isLoading = true;
-          },
-          toggleDisable() {
-            this.isdisabled = true;
+        computed: {
+          reversedMessage() {
+            return this.message.split("").reverse().join("");
           }
-        },
-
-      });
-
-
+        }
+      })
     </script>
   </body>
 </html>
