@@ -11,7 +11,8 @@
   </head>
   <body>
     <div id="root">
-      <button :class= "{ 'is-loading': isLoading }" @click="toggleClass">Toggle me</button>
+      <button :class= "{ 'is-loading': isLoading }" @click= "toggleClass">Toggle me</button>
+      <button :disabled="isdisabled" @click= "toggleDisable" >When clicked disabled</button>
     </div>
 
     <script src="https://unpkg.com/vue@2.4.2/dist/vue.js">
@@ -21,12 +22,16 @@
       var app = new Vue({
         el: "#root",
         data: {
-          isLoading: false
+          isLoading: false,
+          isdisabled: false
         },
 
         methods: {
           toggleClass() {
             this.isLoading = true;
+          },
+          toggleDisable() {
+            this.isdisabled = true;
           }
         },
 
