@@ -36,7 +36,7 @@ Vue.component("important-message", {
   <article class="message" v-show="isVisible">
     <div class="message-header">
       {{ title }}
-      <button class="delete" aria-label="delete" @click="hideModal"></button>
+      <button class="delete" aria-label="delete" @click="isVisible = false"></button>
     </div>
 
     <div class="message-body">
@@ -44,13 +44,7 @@ Vue.component("important-message", {
     </div>
 </article>
 
-  `,
-
-  methods: {
-    hideModal() {
-      this.isVisible = false;
-    }
-  }
+  `
 });
 
 new Vue({
